@@ -1,0 +1,27 @@
+.openSidebar {
+  .project-sidebar {
+    left: 210px;
+  }
+  .project-content {
+    margin-left: 480px;
+  }
+}
+
+.hideSidebar {
+  .project-sidebar  {
+    left: 64px;
+  }
+  .project-content {
+    margin-left: 270px;
+  }
+}
+
+.project-sidebar {
+  position: fixed;
+  left: 64px;
+  top: 124px;
+  width: 270px;
+  bottom: 0;
+  overflow: scroll;
+  border-right: 1px solid #eceef2
+}

@@ -1,0 +1,236 @@
+.no-wrap {
+  white-space: nowrap;
+  .cell {
+    white-space: nowrap;
+  }
+}
+
+.dashboard-container.classic {
+  .el-card.metric-block {
+    height: 126px;
+    border-width: 2px;
+    border-radius: 8px;
+
+    &.auto-height {
+      height: auto;
+    }
+
+    .el-card__header {
+      font-weight: 800;
+      border-bottom: 0;
+    }
+
+    .el-card__body {
+      padding: 36px 20px;
+
+      svg {
+        font-size: 46px;
+      }
+
+      .metric-title, .metric-value {
+        font-weight: 800;
+      }
+
+      .metric-value {
+        font-size: 28px;
+      }
+    }
+
+    &.color1 {
+      border-color: #37a2da;
+      svg {
+        color: #37a2da;
+      }
+      &.fill {
+        background-color: #37a2da;
+        color: white;
+        svg {
+          color: white;
+        }
+      }
+    }
+    &.color2 {
+      border-color: #32c5e9;
+      svg {
+        color: #32c5e9;
+      }
+      &.fill {
+        background-color: #32c5e9;
+        color: white;
+        svg {
+          color: white;
+        }
+      }
+    }
+    &.color3 {
+      border-color: #68e0e3;
+      svg {
+        color: #68e0e3;
+      }
+      &.fill {
+        background-color: #68e0e3;
+        color: white;
+        svg {
+          color: white;
+        }
+      }
+    }
+    &.color4 {
+      border-color: #96bfff;
+      svg {
+        color: #96bfff;
+      }
+      &.fill {
+        background-color: #96bfff;
+        color: white;
+        svg {
+          color: white;
+        }
+      }
+    }
+    &.primary {
+      border-color: rgb(198, 226, 255);
+      color: #1890ff;
+      svg {
+        color: #1890ff;
+      }
+      &.fill {
+        background-color: rgb(198, 226, 255);
+        color: #1890ff;
+        svg {
+          color: #1890ff;
+        }
+      }
+    }
+    &.success {
+      border-color: rgb(225, 243, 216);
+      color: #67C23A;
+      svg {
+        color: #67C23A;
+      }
+      &.fill {
+        background-color: rgb(225, 243, 216);
+        color: #67C23A;
+        svg {
+          color: #67C23A;
+        }
+      }
+    }
+    &.warning {
+      border-color: rgb(250, 236, 216);
+      color: #E6A23C;
+      svg {
+        color: #E6A23C;
+      }
+      &.fill {
+        background-color: rgb(250, 236, 216);
+        color: #E6A23C;
+        svg {
+          color: #E6A23C;
+        }
+      }
+    }
+    &.danger {
+      border-color: rgb(253, 226, 226);
+      color: #F56C6C;
+      svg {
+        color: #F56C6C;
+      }
+      &.fill {
+        background-color: rgb(253, 226, 226);
+        color: #F56C6C;
+        svg {
+          color: #F56C6C;
+        }
+      }
+    }
+    &.info {
+      border-color: #909399;
+      color: #909399;
+      svg {
+        color: #909399;
+      }
+      &.fill {
+        background-color: #909399;
+        color: white;
+        svg {
+          color: white;
+        }
+      }
+    }
+  }
+  .el-card.dashboard-block {
+    border: 0;
+
+    .el-card__header {
+      padding: 18px 0;
+      border: 0;
+
+      .clearfix>span {
+        display: inline-block;
+        border-left: 8px solid rgb(24, 144, 255);
+        padding: 0px 5px;
+        font-weight: 600;
+      }
+    }
+
+    .el-card__body {
+      padding: 0;
+    }
+  }
+}
+
+.fake-select {
+  .el-dropdown-link {
+    padding: 10px;
+
+    &:hover {
+      cursor: pointer;
+      background-color: #EEE;
+    }
+  }
+}
+
+.text-style-input {
+  width: 220px;
+  .el-input__inner {
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    font-family: Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Arial,sans-serif;
+    border: 0;
+    color: #303133;
+    padding-left: 10px;
+    padding-right: 10px;
+    &:hover {
+      cursor: pointer;
+      background-color: #EEE;
+    }
+  }
+  &.is-disabled {
+    .el-input__inner {
+      background-color: transparent;
+      &:hover {
+        cursor: pointer;
+        background-color: transparent;
+      }
+    }
+  }
+}
+
+.board {
+  display: block;
+  // width: 272px;
+  justify-content: space-around;
+  flex-direction: row;
+  align-items: flex-start;
+
+  .option-bar {
+    background-color: #f7f7f7;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    /* color: black; */
+    font-weight: 400;
+    line-height: 32px;
+  }
+}
