@@ -64,6 +64,7 @@
 </template>
 
 <script>
+import { delCookie } from '@/utils/cookie'
 import { mapState } from 'vuex'
 import Breadcrumb from './Breadcrumb'
 import Hamburger from './Hamburger'
@@ -88,6 +89,10 @@ export default {
   methods: {
     toggleSideBar() {
       this.$store.dispatch('app/toggleSideBar')
+    },
+    logout() {
+      delCookie(this.$settings.security.token_key.cookie)
+      this.$router.push('/')
     }
   }
 }
