@@ -1,0 +1,10 @@
+<template>
+  <el-dropdown-item>
+    <a
+      target="_blank"
+      href="/doc/sancho-devops-help/"
+    >
+      <el-dropdown-item>帮助</el-dropdown-item>
+    </a>
+  </el-dropdown-item>
+</template>
