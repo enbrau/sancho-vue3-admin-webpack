@@ -2,7 +2,11 @@
   "name": "sancho-vue3-admin",
   "version": "1.0.0",
   "author": "enbrau",
-  "keywords": ["Vue3", "ElementPlus", "Sancho"],
+  "keywords": [
+    "Vue3",
+    "ElementPlus",
+    "Sancho"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/enbrau/sancho-vue3-admin.git"
