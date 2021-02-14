@@ -44,17 +44,13 @@
           <i class="el-icon-caret-bottom" />
         </div>
         <template #dropdown>
-          <el-dropdown-menu>
-            <component
-              :is="$key"
-              v-for="(action, $key) in actions"
-              :key="$key"
-            />
+          <el-dropdown-menu class="sancho-user-menu">
+            <component :is="$key" v-for="(action, $key) in actions" :key="$key" />
             <el-dropdown-item>
-              <span
-                style="display:block;"
-                @click="logout"
-              >{{ $t('common.quit') }}</span>
+              <span style="display:block;" @click="logout">
+                <svg-icon icon-class="exit" />
+                {{ $t('common.quit') }}
+              </span>
             </el-dropdown-item>
           </el-dropdown-menu>
         </template>
@@ -99,6 +95,13 @@ export default {
 </script>
 
 <style lang="scss">
+.sancho-user-menu {
+  .el-dropdown-menu__item {
+    padding: 0 15px;
+    text-align: right;
+  }
+}
+
 .navbar {
   height: 50px;
   overflow: hidden;

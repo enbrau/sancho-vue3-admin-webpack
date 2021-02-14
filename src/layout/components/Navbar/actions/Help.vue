@@ -1,10 +1,8 @@
 <template>
   <el-dropdown-item>
-    <a
-      target="_blank"
-      href="/doc/sancho-devops-help/"
-    >
-      <el-dropdown-item>帮助</el-dropdown-item>
-    </a>
+    <span style="display:block;">
+      <svg-icon icon-class="help-square" />
+      帮助
+    </span>
   </el-dropdown-item>
 </template>
