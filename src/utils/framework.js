@@ -21,7 +21,7 @@ export const Log = function(settings) {
           logger = console.log
           break
       }
-      logger(`[ARK][${tag}] - `, data)
+      logger(`[SANCHO][${tag}] - `, data)
     }
   }
   this.debug = function(data) {

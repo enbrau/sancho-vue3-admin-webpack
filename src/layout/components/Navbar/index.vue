@@ -70,7 +70,6 @@ import actions from './actions'
 export default {
   components: { Breadcrumb, Hamburger, ...tools, ...actions },
   data() {
-    console.log(tools)
     return {
       tools,
       actions

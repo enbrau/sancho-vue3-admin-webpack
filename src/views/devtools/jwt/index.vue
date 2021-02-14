@@ -100,7 +100,6 @@ export default {
   },
   computed: {
     rightPanelHeight() {
-      console.log(this.$refs.rightPanel)
       return this.$refs.rightPanel ? this.$refs.rightPanel.height : 0
     },
     json_header() {
