@@ -39,6 +39,12 @@ module.exports = {
    */
   sidebarLogo: true,
 
+  /**
+   * @type {boolean} true | false
+   * @description Whether close sidebar at beginning
+   */
+  collapseSidebar: true,
+
   // =========================================================================================
   // !!! The following options cannot be overwritten by other entry files
   // =========================================================================================
