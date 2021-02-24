@@ -1,7 +1,11 @@
+import { createI18n } from 'vue-i18n'
+
+const locale = navigator.language || navigator.userLanguage || 'zh-CN'
 const langs = {
-  locale: 'zh-CN',
+  locale,
   messages: {}
 }
+
 const req = require.context('./lang', false, /\.js$/)
 const requireAll = requireContext => {
   requireContext.keys().forEach(key => {
@@ -11,30 +15,6 @@ const requireAll = requireContext => {
 }
 requireAll(req)
 
-const getValueByPath = function(data, path) {
-  if (!path) return path;
-  const targets = path.split('.');
-  let currentData = data;
-  for (let i = 0; i < targets.length; i++) {
-    if (!currentData) break;
-    currentData = currentData[targets[i]]
-  }
-  return currentData
-}
+const i18n = createI18n(langs)
 
-export const getZhValueByPath = function(path) {
-  const data = langs.messages['zh-CN']
-  return getValueByPath(data, path)
-}
-
-export default {
-  install: (app, locale) => {
-    app.config.globalProperties['$t'] = key => {
-      if (!langs.messages[locale]) {
-        console.warn(`Language package ${locale} is not provided!`)
-        return key
-      }
-      return getValueByPath(langs.messages[locale], key) || key
-    }
-  }
-}
+export default i18n

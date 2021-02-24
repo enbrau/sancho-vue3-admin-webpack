@@ -7,7 +7,6 @@ import { day, lodash, dict } from '@/utils/globals'
 import App from './App.vue'
 // I18N
 import i18n from '@/i18n'
-const locale = navigator.language || navigator.userLanguage || 'zh-CN'
 // Icons
 import icons from '@/icons'
 // Router
@@ -22,7 +21,7 @@ import 'vant/lib/index.css'
 
 init(settings, [day, lodash, dict], App, app => {
   app
-    .use(i18n, locale)
+    .use(i18n)
     .use(icons)
     .use(router)
     .use(store)
