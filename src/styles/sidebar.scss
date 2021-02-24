@@ -73,8 +73,9 @@
       }
     }
 
-    .is-active>.el-submenu__title {
+    .is-active>.el-submenu__title, .is-active>div {
       color: $subMenuActiveText !important;
+      background-color: $subMenuActiveBg !important;
       &:hover {
         color: $subMenuActiveHoverText !important;
       }
