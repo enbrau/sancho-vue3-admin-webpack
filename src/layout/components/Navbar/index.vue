@@ -94,6 +94,9 @@ export default {
 </script>
 
 <style lang="scss">
+@import "~@/styles/mixin.scss";
+@import "~@/styles/variables.scss";
+
 .sancho-user-menu {
   .el-dropdown-menu__item {
     padding: 0 15px;
@@ -105,7 +108,7 @@ export default {
   height: 50px;
   overflow: hidden;
   position: relative;
-  background: #fff;
+  background: $navBarBg;
   // box-shadow: 0 1px 4px rgba(0,21,41,.08);
 
   .hamburger-container {
