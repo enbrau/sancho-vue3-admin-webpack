@@ -77,3 +77,16 @@ export function getSidebarState() {
 export function setSidebarState(opened) {
   window.sessionStorage.setItem(SESSION.SIDEBAR, opened ? 'opened' : 'collapse')
 }
+
+export function getLocale() {
+  let val = window.sessionStorage.getItem(SESSION.LOCALE)
+  if (!val) {
+    val = navigator.language || navigator.userLanguage || 'zh-CN'
+    window.sessionStorage.setItem(SESSION.LOCALE, val)
+  }
+  return val
+}
+
+export function setLocale(locale) {
+  window.sessionStorage.setItem(SESSION.LOCALE, locale)
+}
