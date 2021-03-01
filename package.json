@@ -40,6 +40,7 @@
     "nprogress": "^0.2.0",
     "qrcode": "^1.4.4",
     "screenfull": "^4.2.0",
+    "sm-crypto": "^0.2.4",
     "sm2": "^1.0.1",
     "ua-parser-js": "^0.7.23",
     "vant": "^3.0.3",
