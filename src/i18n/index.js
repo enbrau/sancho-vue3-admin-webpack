@@ -1,7 +1,8 @@
 import { createI18n } from 'vue-i18n'
 import lodash from 'lodash'
+import { getLocale } from '@/utils/framework'
 
-const locale = navigator.language || navigator.userLanguage || 'zh-CN'
+const locale = getLocale()
 const langs = {
   locale,
   messages: {}
@@ -22,6 +23,14 @@ const requireAll = requireContext => {
 }
 requireAll(req)
 
-const i18n = createI18n(langs)
+export const locales = (function() {
+  const locales = {}
+  for (const lang in langs.messages) {
+    locales[lang] = langs.messages[lang].language
+  }
+  return locales
+})()
 
-export default i18n
+export const currentLocale = locales.locale
+
+export default createI18n(langs)
