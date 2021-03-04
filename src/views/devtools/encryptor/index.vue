@@ -11,17 +11,15 @@
           />
         </el-row>
         <el-row style="margin: 10px 0">
-          <el-radio-group
-            v-model="alg"
-            size="small"
-          >
-            <el-radio-button
+          <el-select v-model="alg" size="small">
+            <el-option
               v-for="(encryptor, $key) in encryptors"
               :key="$key"
               :label="$key"
+              :value="$key"
               :title="encryptor.desc || ''"
             />
-          </el-radio-group>
+          </el-select>
           <el-input
             v-if="showSecretPhrase"
             v-model="secretPhrase"
@@ -65,6 +63,7 @@
 
 <script>
 import crypto from 'crypto-js'
+import { sm2, sm3 } from 'sm-crypto'
 
 // https://cryptojs.gitbook.io/docs/
 const encryptors = {
@@ -157,6 +156,17 @@ const encryptors = {
     },
     decrypt(data, secret) {
       return crypto.TripleDES.decrypt(data, secret).toString(crypto.enc.Utf8)
+    }
+  },
+  'SM2': {
+    showSecretPhrase: true,
+    encrypt(data, secret) {
+      const cipherMode = 0
+      return '04' + sm2.doEncrypt(data, secret, cipherMode)
+    },
+    decrypt(data, secret) {
+      const cipherMode = 0
+      return sm2.doDecrypt(data, secret, cipherMode)
     }
   }
 }
