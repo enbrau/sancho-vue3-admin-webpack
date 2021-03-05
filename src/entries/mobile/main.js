@@ -16,6 +16,9 @@ import store from '@/store'
 // UI: ElementPlus
 import Vant from 'vant'
 import 'vant/lib/index.css'
+import ElementPlus from 'element-plus'
+import 'element-plus/lib/theme-chalk/index.css'
+import elementLocale from 'element-plus/lib/locale/lang/zh-cn'
 // UI: Custom Styles
 // import '@/styles/index.scss'
 
@@ -26,5 +29,6 @@ init(settings, [day, lodash, dict], App, app => {
     .use(router)
     .use(store)
     .use(Vant)
+    .use(ElementPlus, { locale: elementLocale })
     .mount('body')
 })
