@@ -1,10 +1,10 @@
 import { init } from '@/utils/framework'
 // Settings
-import settings from '@/settings'
+import settings from './settings'
 // Global Variable Jobs
 import { day, lodash, dict, bus } from '@/utils/globals'
 // Main Component
-import App from '@/App.vue'
+import App from '@/entries/main/App.vue'
 // I18N
 import i18n from '@/i18n'
 // Icons

@@ -1,6 +1,7 @@
 import { createApp } from 'vue'
 import lodash from 'lodash'
 import { getClientInfo } from '@/utils/browser'
+import defaultSettings from '@/settings'
 
 export const Log = function(settings) {
   const _log = function(tag, data) {
@@ -39,18 +40,22 @@ export const Log = function(settings) {
   return this
 }
 
+let finalSettings = {}
+
 export function init(settings, initJobs, rootComponent, callback) {
+  finalSettings = lodash.extend(defaultSettings, settings)
   // NProgress.start()
-  const log = new Log(settings)
+  const log = new Log(finalSettings)
   log.info(getClientInfo())
   return Promise.all(initJobs)
     .then(res => {
-      let data = { log, settings }
+      let data = { log, finalSettings }
       for (const globalProperty of res) {
         data = lodash.extend(data, globalProperty)
       }
       // Create Vue3 Instance
       const app = createApp(rootComponent)
+      app.config.globalProperties['$settings'] = finalSettings
       for (const key in data) {
         app.config.globalProperties['$' + key] = data[key]
       }
@@ -63,12 +68,11 @@ export function init(settings, initJobs, rootComponent, callback) {
 }
 
 import { SESSION } from './enums'
-import settings from '@/settings'
 
 export function getSidebarState() {
   let val = window.sessionStorage.getItem(SESSION.SIDEBAR)
   if (!val) {
-    val = settings.collapseSidebar ? 'collapse' : 'opened'
+    val = finalSettings.collapseSidebar ? 'collapse' : 'opened'
     window.sessionStorage.setItem(SESSION.SIDEBAR, val)
   }
   return val === 'opened'

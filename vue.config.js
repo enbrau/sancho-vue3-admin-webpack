@@ -15,13 +15,13 @@ module.exports = {
   assetsDir: 'static',
   lintOnSave: process.env.NODE_ENV === 'development',
   pages: {
-    index: {
-      entry: 'src/main.js',
-      template: 'src/index.html',
-      filename: 'index.html',
-      chunks: ['chunk-vendors', 'chunk-common', 'index'],
-      title: settings.title
-    },
+    // index: {
+    //   entry: 'src/main.js',
+    //   template: 'src/index.html',
+    //   filename: 'index.html',
+    //   chunks: ['chunk-vendors', 'chunk-common', 'index'],
+    //   title: settings.title
+    // },
     ...entries
   },
   productionSourceMap: false,

@@ -14,7 +14,7 @@
     >
       <div class="title-container">
         <h3 class="title">
-          {{ $settings.SYSTEM_TITLE }}
+          {{ $settings.title }}
         </h3>
       </div>
 

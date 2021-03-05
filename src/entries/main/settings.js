@@ -1,5 +1,5 @@
 export default {
 
-  title: '手机'
+  title: 'PC'
 
 }

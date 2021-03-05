@@ -11,7 +11,7 @@ const scanForEntries = () => {
     map[key] = {
       entry: 'src/entries/' + key + '/main.js',
       template: 'src/index.html',
-      filename: key + '.html',
+      filename: (key === 'main' ? 'index' : key) + '.html',
       chunks: ['chunk-vendors', 'chunk-common', key],
       title: settings.title
     }
