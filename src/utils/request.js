@@ -1,8 +1,9 @@
 import axios from 'axios'
 import { ElMessageBox, ElMessage } from 'element-plus'
 import settings from '@/settings'
-import { getToken, removeToken } from '@/utils/auth'
+import { removeToken } from '@/utils/auth'
 import router from '@/router'
+import requestHook from '@/hook/request'
 
 const service = axios.create({
   baseURL: process.env.VUE_APP_BASE_API,
@@ -14,11 +15,8 @@ const service = axios.create({
 service.interceptors.request.use(
   config => {
     // do something before request is sent
-    const token_strategy = settings.security.token_strategy
-    if (token_strategy === 'header') {
-      const token = getToken()
-      config.headers[settings.security.token_key.header] = token
-    }
+    // Call hooks
+    requestHook.call(config)
     return config
   },
   error => {
