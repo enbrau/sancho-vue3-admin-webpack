@@ -11,5 +11,16 @@ module.exports = [
         msg: null
       }
     }
+  },
+  {
+    url: '/common/key',
+    type: 'get',
+    response: () => {
+      return {
+        flag: 0,
+        data: "encryption_key",
+        msg: null
+      }
+    }
   }
 ]
