@@ -40,12 +40,16 @@ export const Log = function(settings) {
   return this
 }
 
+export function getSettings() {
+  return settings
+}
+
 import { SESSION } from './enums'
 
 export function getSidebarState() {
   let val = window.sessionStorage.getItem(SESSION.SIDEBAR)
   if (!val) {
-    val = finalSettings.collapseSidebar ? 'collapse' : 'opened'
+    val = getSettings().collapseSidebar ? 'collapse' : 'opened'
     window.sessionStorage.setItem(SESSION.SIDEBAR, val)
   }
   return val === 'opened'
@@ -68,18 +72,17 @@ export function setLocale(locale) {
   window.sessionStorage.setItem(SESSION.LOCALE, locale)
 }
 
-let finalSettings = {}
 import preloadHook from '@/hook/preload'
+import settings from '@/settings'
 
 export function init(settings, rootComponent, callback) {
-  finalSettings = lodash.extend(defaultSettings, settings)
+  const finalSettings = lodash.extend(defaultSettings, settings)
   // NProgress.start()
   const log = new Log(finalSettings)
   log.info(getClientInfo())
   // Create Vue3 Instance
   const app = createApp(rootComponent)
   return preloadHook.promise(app).then(() => {
-    // Create Vue3 Instance
     app.config.globalProperties['$settings'] = finalSettings
     app.config.globalProperties['$log'] = log
     callback(app)
