@@ -25,7 +25,6 @@ import { setLocale } from '@/utils/framework'
 export default {
   name: 'LocaleSelector',
   data() {
-    console.log(locales)
     return {
       locales,
       currentLocale

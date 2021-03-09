@@ -79,7 +79,6 @@ export function init(settings, rootComponent, callback) {
   // Create Vue3 Instance
   const app = createApp(rootComponent)
   return preloadHook.promise(app).then(() => {
-    console.log('done');
     // Create Vue3 Instance
     app.config.globalProperties['$settings'] = finalSettings
     app.config.globalProperties['$log'] = log
