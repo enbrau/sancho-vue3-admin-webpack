@@ -41,5 +41,7 @@ export default {
   sort: '排序',
   hidden: '可見',
   history: '歷史',
-  impersonate: '扮演'
+  impersonate: '扮演',
+  fullscreen: '全屏',
+  locale: '語言區域'
 }
