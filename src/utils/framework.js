@@ -81,27 +81,8 @@ export function init(settings, rootComponent, callback) {
   return preloadHook.promise(app).then(() => {
     console.log('done');
     // Create Vue3 Instance
-    const app = createApp(rootComponent)
     app.config.globalProperties['$settings'] = finalSettings
     app.config.globalProperties['$log'] = log
     callback(app)
   })
-  // return Promise.all(initJobs)
-  //   .then(res => {
-  //     let data = { log, finalSettings }
-  //     for (const globalProperty of res) {
-  //       data = lodash.extend(data, globalProperty)
-  //     }
-  //     // Create Vue3 Instance
-  //     // const app = createApp(rootComponent)
-  //     // app.config.globalProperties['$settings'] = finalSettings
-  //     // for (const key in data) {
-  //     //   app.config.globalProperties['$' + key] = data[key]
-  //     // }
-  //     // callback(app)
-  //     // NProgress.done()
-  //   })
-  //   .catch(err => {
-  //     log.error(err)
-  //   })
 }
