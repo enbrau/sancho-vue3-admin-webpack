@@ -79,7 +79,10 @@ export default {
     ...mapState({
       sidebar: state => state.app.sidebar,
       device: state => state.user.device
-    })
+    }),
+    isCancelImpersonateEnabled() {
+      return this.$settings.enableImpersonate || false
+    }
   },
   methods: {
     toggleSideBar() {
