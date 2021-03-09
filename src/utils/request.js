@@ -89,7 +89,7 @@ service.interceptors.response.use(
     let message = error.message
     if (error.response) {
       const status = error.response.status
-      if (status === 403) {
+      if (status === 403 || status === 401) {
         removeToken()
         router.push('/')
       }
