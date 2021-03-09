@@ -1,6 +1,5 @@
 <template>
   <el-tooltip
-    v-if="$settings.enableFullScreen"
     :content="$t('common.locale')"
     effect="dark"
     placement="bottom"
