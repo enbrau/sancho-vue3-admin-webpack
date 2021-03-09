@@ -122,7 +122,7 @@ router.beforeEach(async(to, from, next) => {
           next({ ...to, replace: true })
         } catch(error) {
           console.log(error)
-          ElMessage.error(error || '')
+          // ElMessage.error(error || '')
         }
       }
     }
