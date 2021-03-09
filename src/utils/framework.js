@@ -40,33 +40,6 @@ export const Log = function(settings) {
   return this
 }
 
-let finalSettings = {}
-
-export function init(settings, initJobs, rootComponent, callback) {
-  finalSettings = lodash.extend(defaultSettings, settings)
-  // NProgress.start()
-  const log = new Log(finalSettings)
-  log.info(getClientInfo())
-  return Promise.all(initJobs)
-    .then(res => {
-      let data = { log, finalSettings }
-      for (const globalProperty of res) {
-        data = lodash.extend(data, globalProperty)
-      }
-      // Create Vue3 Instance
-      const app = createApp(rootComponent)
-      app.config.globalProperties['$settings'] = finalSettings
-      for (const key in data) {
-        app.config.globalProperties['$' + key] = data[key]
-      }
-      callback(app)
-      // NProgress.done()
-    })
-    .catch(err => {
-      log.error(err)
-    })
-}
-
 import { SESSION } from './enums'
 
 export function getSidebarState() {
@@ -93,4 +66,42 @@ export function getLocale() {
 
 export function setLocale(locale) {
   window.sessionStorage.setItem(SESSION.LOCALE, locale)
+}
+
+let finalSettings = {}
+import preloadHook from '@/hook/preload'
+
+export function init(settings, rootComponent, callback) {
+  finalSettings = lodash.extend(defaultSettings, settings)
+  // NProgress.start()
+  const log = new Log(finalSettings)
+  log.info(getClientInfo())
+  // Create Vue3 Instance
+  const app = createApp(rootComponent)
+  return preloadHook.promise(app).then(() => {
+    console.log('done');
+    // Create Vue3 Instance
+    const app = createApp(rootComponent)
+    app.config.globalProperties['$settings'] = finalSettings
+    app.config.globalProperties['$log'] = log
+    callback(app)
+  })
+  // return Promise.all(initJobs)
+  //   .then(res => {
+  //     let data = { log, finalSettings }
+  //     for (const globalProperty of res) {
+  //       data = lodash.extend(data, globalProperty)
+  //     }
+  //     // Create Vue3 Instance
+  //     // const app = createApp(rootComponent)
+  //     // app.config.globalProperties['$settings'] = finalSettings
+  //     // for (const key in data) {
+  //     //   app.config.globalProperties['$' + key] = data[key]
+  //     // }
+  //     // callback(app)
+  //     // NProgress.done()
+  //   })
+  //   .catch(err => {
+  //     log.error(err)
+  //   })
 }

@@ -1,8 +1,6 @@
 import { init } from '@/utils/framework'
 // Settings
 import settings from './settings'
-// Global Variable Jobs
-import { day, lodash, dict } from '@/utils/globals'
 // Main Component
 import App from './App.vue'
 // I18N
@@ -22,7 +20,7 @@ import elementLocale from 'element-plus/lib/locale/lang/zh-cn'
 // UI: Custom Styles
 // import '@/styles/index.scss'
 
-init(settings, [day, lodash, dict], App, app => {
+init(settings, App, app => {
   app
     .use(i18n)
     .use(icons)
