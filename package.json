@@ -36,6 +36,7 @@
     "jsonlint": "^1.6.3",
     "jsrsasign": "^10.1.4",
     "lodash": "^4.17.20",
+    "mathjs": "^9.2.0",
     "mitt": "^2.1.0",
     "nprogress": "^0.2.0",
     "qrcode": "^1.4.4",
