@@ -15,10 +15,5 @@ export function setCookie (c_name, value, expiredays) {
 }
 
 export function delCookie (name) {
-  const exp = new Date()
-  exp.setTime(exp.getTime() - 1)
-  const cval = getCookie(name)
-  if (cval != null) {
-    document.cookie = name + "=" + cval + ";path=/;expires=" + exp.toGMTString()
-  }
+  document.cookie = name + "=;expires=-1"
 }
