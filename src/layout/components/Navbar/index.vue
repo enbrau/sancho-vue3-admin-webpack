@@ -46,6 +46,7 @@
         <template #dropdown>
           <el-dropdown-menu class="sancho-user-menu">
             <component :is="$key" v-for="(action, $key) in actions" :key="$key" />
+            <el-divider style="margin: 0px;"></el-divider>
             <el-dropdown-item>
               <span style="display:block;" @click="logout">
                 <svg-icon icon-class="exit" />
@@ -90,7 +91,7 @@ export default {
     },
     logout() {
       delCookie(this.$settings.security.token_key.cookie)
-      this.$router.push('/')
+      this.$router.push('/login')
     }
   }
 }
@@ -103,7 +104,7 @@ export default {
 .sancho-user-menu {
   .el-dropdown-menu__item {
     padding: 0 15px;
-    text-align: right;
+    text-align: left;
   }
 }
 
