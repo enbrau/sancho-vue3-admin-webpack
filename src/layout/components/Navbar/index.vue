@@ -73,7 +73,8 @@ export default {
   data() {
     return {
       tools,
-      actions
+      actions,
+      avatar: null
     }
   },
   computed: {
@@ -152,6 +153,7 @@ export default {
       height: 100%;
       font-size: 18px;
       color: #5a5e66;
+      line-height: 50px;
       vertical-align: text-bottom;
 
       &.hover-effect {
