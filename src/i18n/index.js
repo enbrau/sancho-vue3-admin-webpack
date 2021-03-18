@@ -31,6 +31,6 @@ export const locales = (function() {
   return locales
 })()
 
-export const currentLocale = locales.locale
+export const currentLocale = locale
 
 export default createI18n(langs)
