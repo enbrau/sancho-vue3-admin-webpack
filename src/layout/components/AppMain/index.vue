@@ -4,14 +4,14 @@
       :key="key"
       v-slot="{ Component }"
     >
-      <transition
+      <!-- <transition
         name="fade-transform"
         mode="out-in"
-      >
+      > -->
         <keep-alive :include="cachedViews">
           <component :is="Component" />
         </keep-alive>
-      </transition>
+      <!-- </transition> -->
     </router-view>
   </section>
 </template>
