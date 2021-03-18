@@ -1,10 +1,12 @@
-import { getSidebarState, setSidebarState } from '@/utils/framework'
+import { getSidebarState, setSidebarState, getSize, getLocale } from '@/utils/framework'
 
 const state = {
   sidebar: getSidebarState(),
   withoutAnimation: false,
   device: 'desktop',
-  loading: false
+  loading: false,
+  locale: getLocale(),
+  size: getSize()
 }
 
 const mutations = {

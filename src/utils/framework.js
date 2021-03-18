@@ -72,8 +72,22 @@ export function setLocale(locale) {
   window.sessionStorage.setItem(SESSION.LOCALE, locale)
 }
 
+export function getSize() {
+  let val = window.sessionStorage.getItem(SESSION.SIZE)
+  if (!val) {
+    val = 'small'
+    window.sessionStorage.setItem(SESSION.SIZE, val)
+  }
+  return val
+}
+
+export function setSize(size) {
+  window.sessionStorage.setItem(SESSION.SIZE, size)
+}
+
 import preloadHook from '@/hook/preload'
 import settings from '@/settings'
+import { im } from 'mathjs'
 
 export function init(settings, rootComponent, callback) {
   const finalSettings = lodash.extend(defaultSettings, settings)

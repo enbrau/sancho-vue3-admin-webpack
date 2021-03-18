@@ -3,7 +3,9 @@ export const SESSION = {
 
   LOCALE: 'sancho-locale',
 
-  SIDEBAR: 'sancho-sidebar-state'
+  SIDEBAR: 'sancho-sidebar-state',
+
+  SIZE: 'sancho-size'
 }
 
 export const SUPER_ADMIN = 'SUPER_ADMIN'
