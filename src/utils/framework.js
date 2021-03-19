@@ -87,7 +87,6 @@ export function setSize(size) {
 
 import preloadHook from '@/hook/preload'
 import settings from '@/settings'
-import { im } from 'mathjs'
 
 export function init(settings, rootComponent, callback) {
   const finalSettings = lodash.extend(defaultSettings, settings)
