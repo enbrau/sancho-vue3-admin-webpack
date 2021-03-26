@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "@antv/x6": "^1.18.0",
+    "art-template": "^4.13.2",
     "axios": "^0.21.1",
     "clipboard": "^2.0.6",
     "cnchar": "^3.0.1",
