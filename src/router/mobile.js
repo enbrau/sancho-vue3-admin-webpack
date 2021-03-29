@@ -44,7 +44,7 @@ const router = createRouter({
 // Route Rules: 
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
-import { Toast } from 'vant'
+// import { Toast } from 'vant'
 import store from '@/store'
 import { getToken } from '@/utils/auth'
 import { deepClone } from '@/utils'

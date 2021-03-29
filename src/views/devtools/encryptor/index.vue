@@ -63,7 +63,7 @@
 
 <script>
 import crypto from 'crypto-js'
-import { sm2, sm3 } from 'sm-crypto'
+import { sm2 } from 'sm-crypto'
 
 // https://cryptojs.gitbook.io/docs/
 const encryptors = {

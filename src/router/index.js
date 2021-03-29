@@ -79,7 +79,7 @@ const router = createRouter({
 // Route Rules:
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
-import { ElMessage } from 'element-plus'
+// import { ElMessage } from 'element-plus'
 import store from '@/store'
 import { getToken } from '@/utils/auth'
 import { deepClone } from '@/utils'
