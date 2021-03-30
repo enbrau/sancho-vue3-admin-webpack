@@ -49,7 +49,7 @@ export default {
       const first = matched[0]
 
       if (!this.isRootRoute(first)) {
-        matched = [{ path: '/dashboard', meta: { title: this.$t('menu.Dashboard') }}].concat(matched)
+        matched = [{ path: '/dashboard', meta: { title: 'menu.Dashboard' }}].concat(matched)
       }
 
       this.levelList = matched.filter(item => item.meta && item.meta.title && item.meta.breadcrumb !== false)
