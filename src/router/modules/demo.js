@@ -7,7 +7,7 @@ const routes = [
     component: Layout,
     redirect: 'noRedirect',
     name: 'components',
-    hidden: !settings.showDemoPages,
+    hidden: !settings.showDemoPages || process.env.NODE_ENV === 'production',
     alwaysShow: true,
     meta: {
       title: 'menu.Components',

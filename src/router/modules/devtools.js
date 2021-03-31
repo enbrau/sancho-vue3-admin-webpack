@@ -7,8 +7,8 @@ const routes = [
     component: Layout,
     redirect: 'noRedirect',
     name: 'devtools',
-    hidden: !settings.showDevTools || process.env.NODE_ENV === 'production',
     alwaysShow: true,
+    hidden: !settings.showDevTools || process.env.NODE_ENV === 'production',
     meta: {
       title: 'menu.DevTools',
       icon: 'toolkit'
