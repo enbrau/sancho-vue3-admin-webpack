@@ -65,7 +65,7 @@ export function getLocale() {
     val = navigator.language || navigator.userLanguage || 'zh-CN'
     window.sessionStorage.setItem(SESSION.LOCALE, val)
   }
-  return val
+  return val.toLowerCase()
 }
 
 export function setLocale(locale) {
