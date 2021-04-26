@@ -166,6 +166,12 @@ export default {
       }
     }
 
+    .right-menu-divider {
+      display: inline-block;
+      height: 60%;
+      vertical-align: super;
+    }
+
     .avatar-container {
       margin-right: 30px;
 
