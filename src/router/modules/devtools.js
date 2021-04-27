@@ -7,29 +7,26 @@ const routes = [
     component: Layout,
     redirect: 'noRedirect',
     name: 'devtools',
-    alwaysShow: true,
     hidden: !settings.showDevTools || process.env.NODE_ENV === 'production',
-    meta: {
-      title: 'menu.DevTools',
-      icon: 'toolkit'
-    },
+    alwaysShow: true,
+    meta: { title: 'menu.DevTools', icon: 'toolkit' },
     children: [
       {
         path: 'jwt',
         component: () => import('@/views/devtools/jwt'),
-        name: 'JWTViewer',
+        name: 'devtools.JWTViewer',
         meta: { title: 'menu.devtools.JWTViewer', icon: 'token' }
       },
       {
         path: 'tsconvertor',
         component: () => import('@/views/devtools/tsconvertor'),
-        name: 'TSConvertor',
+        name: 'devtools.TSConvertor',
         meta: { title: 'menu.devtools.TSConvertor', icon: 'traditional-chinese' }
       },
       {
         path: 'encryptor',
         component: () => import('@/views/devtools/encryptor'),
-        name: 'Encryptor',
+        name: 'devtools.Encryptor',
         meta: { title: 'menu.devtools.Encryptor', icon: 'encrypt' }
       }
     ]

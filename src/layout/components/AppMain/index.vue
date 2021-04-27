@@ -1,17 +1,9 @@
 <template>
   <section class="app-main">
-    <router-view
-      :key="key"
-      v-slot="{ Component }"
-    >
-      <!-- <transition
-        name="fade-transform"
-        mode="out-in"
-      > -->
-        <keep-alive :include="cachedViews">
-          <component :is="Component" />
-        </keep-alive>
-      <!-- </transition> -->
+    <router-view v-slot="{ Component }">
+      <keep-alive>
+        <component :is="Component" :key="key" />
+      </keep-alive>
     </router-view>
   </section>
 </template>
@@ -24,7 +16,7 @@ export default {
       return this.$store.state.tagsView.cachedViews
     },
     key() {
-      return this.$route.path
+      return this.$route.fullPath
     }
   }
 }

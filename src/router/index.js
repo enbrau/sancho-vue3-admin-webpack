@@ -72,14 +72,13 @@ export const dynamicRoutes = [
 
 const router = createRouter({
   history: createWebHashHistory(),
-  scrollBehavior: () => ({ y: 0 }),
+  scrollBehavior: () => ({ left: 0 }),
   routes: constantRoutes
 })
 
 // Route Rules:
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
-// import { ElMessage } from 'element-plus'
 import store from '@/store'
 import { getToken } from '@/utils/auth'
 import { deepClone } from '@/utils'
@@ -122,7 +121,6 @@ router.beforeEach(async(to, from, next) => {
           next({ ...to, replace: true })
         } catch(error) {
           console.log(error)
-          // ElMessage.error(error || '')
         }
       }
     }

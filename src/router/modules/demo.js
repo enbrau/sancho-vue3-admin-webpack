@@ -3,16 +3,13 @@ import settings from '@/settings'
 
 const routes = [
   {
-    path: '/demo',
+    path: '/components',
     component: Layout,
     redirect: 'noRedirect',
     name: 'components',
     hidden: !settings.showDemoPages || process.env.NODE_ENV === 'production',
     alwaysShow: true,
-    meta: {
-      title: 'menu.Components',
-      icon: 'component'
-    },
+    meta: { title: 'menu.Components', icon: 'component' },
     children: [
       {
         path: 'qrcode',
