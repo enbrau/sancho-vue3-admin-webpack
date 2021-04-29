@@ -1,15 +1,9 @@
 <template>
-  <div
-    id="tags-view-container"
-    class="tags-view-container"
-  >
-    <scroll-pane
-      ref="scrollPane"
-      class="tags-view-wrapper"
-    >
+  <div id="tags-view-container" class="tags-view-container">
+    <scroll-pane ref="scrollPane" class="tags-view-wrapper">
       <router-link
         v-for="tag in visitedViews"
-        ref="tag"
+        :ref="setTags"
         :key="tag.path"
         :class="isActive(tag)?'active':''"
         :to="{ path: tag.path, query: tag.query, fullPath: tag.fullPath }"
@@ -17,13 +11,11 @@
         class="tags-view-item"
         @click.middle="!isAffix(tag)?closeSelectedTag(tag):''"
         @contextmenu.prevent="openMenu(tag,$event)"
+        replace
       >
+        <svg-icon :icon-class="tag.meta && tag.meta.icon ? tag.meta.icon : 'component'" style="font-size: 1.2em;" />
         {{ $t(tag.title) }}
-        <span
-          v-if="!isAffix(tag)"
-          class="el-icon-close"
-          @click.prevent.stop="closeSelectedTag(tag)"
-        />
+        <span v-if="!isAffix(tag)" class="el-icon-close" @click.prevent.stop="closeSelectedTag(tag)"/>
       </router-link>
     </scroll-pane>
     <ul
@@ -62,6 +54,7 @@ export default {
       top: 0,
       left: 0,
       selectedTag: {},
+      tags: [],
       affixTags: []
     }
   },
@@ -90,7 +83,15 @@ export default {
     this.initTags()
     this.addTags()
   },
+  beforeUpdate() {
+    this.tags = []
+  },
   methods: {
+    setTags(el) {
+      if (el) {
+        this.tags.push(el)
+      }
+    },
     isActive(route) {
       return route.path === this.$route.path
     },
@@ -135,18 +136,19 @@ export default {
       return false
     },
     moveToCurrentTag() {
-      const tag = this.$refs.tag
+      const tags = this.tags
+      const scrollPane =  this.$refs.scrollPane
       this.$nextTick(() => {
-        // for (const tag of tags) {
-          if (tag.to.path === this.$route.path && this.$refs.scrollPane) {
-            this.$refs.scrollPane.moveToTarget(tag)
+        for (const tag of tags) {
+          if (tag.to.path === this.$route.path && scrollPane) {
+            scrollPane.moveToTarget(tag)
             // when query is different then update
             if (tag.to.fullPath !== this.$route.fullPath) {
               this.$store.dispatch('tagsView/updateVisitedView', this.$route)
             }
-            //break
+            break
           }
-        // }
+        }
       })
     },
     refreshSelectedTag(view) {
@@ -250,16 +252,16 @@ export default {
         background-color: #1890ff;
         color: #fff;
         border-color: #1890ff;
-        &::before {
-          content: '';
-          background: #fff;
-          display: inline-block;
-          width: 8px;
-          height: 8px;
-          border-radius: 50%;
-          position: relative;
-          margin-right: 2px;
-        }
+        // &::before {
+        //   content: '';
+        //   background: #fff;
+        //   display: inline-block;
+        //   width: 8px;
+        //   height: 8px;
+        //   border-radius: 50%;
+        //   position: relative;
+        //   margin-right: 2px;
+        // }
       }
     }
   }
