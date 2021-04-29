@@ -18,12 +18,7 @@ export default {
   name: 'DashboardSelector',
   computed: {
     dashboardCount() {
-      // const dashboards = getDashboardsInfo()
-      let i = 0
-      for (const key in this.dashboards) {
-        i++
-      }
-      return i
+      return Object.keys(this.dashboards || {}).length
     },
     dashboards() {
       return getDashboardsInfo()
