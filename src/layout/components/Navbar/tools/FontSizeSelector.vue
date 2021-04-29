@@ -1,6 +1,6 @@
 <template>
   <!-- <el-tooltip class="right-menu-item hover-effect" :content="$t('common.font_size')" effect="dark" placement="bottom"> -->
-  <el-dropdown class="right-menu-item hover-effect" trigger="click" @command="switchFontSize">
+  <el-dropdown class="right-menu-item hover-effect" trigger="hover" @command="switchFontSize">
     <svg-icon icon-class="font-size" />
     <template #dropdown>
       <el-dropdown-menu>

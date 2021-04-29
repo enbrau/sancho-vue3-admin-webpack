@@ -5,7 +5,9 @@ export const SESSION = {
 
   SIDEBAR: 'sancho-sidebar-state',
 
-  SIZE: 'sancho-size'
+  SIZE: 'sancho-size',
+
+  DASHBOARD: 'sancho-dashboard'
 }
 
 export const SUPER_ADMIN = 'SUPER_ADMIN'

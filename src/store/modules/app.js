@@ -1,4 +1,6 @@
+import { SESSION } from '@/utils/enums'
 import { getSidebarState, setSidebarState, getSize, getLocale } from '@/utils/framework'
+import { getDefaultDashboard } from '@/views/dashboard/utils'
 
 const state = {
   sidebar: getSidebarState(),
@@ -6,7 +8,8 @@ const state = {
   device: 'desktop',
   loading: false,
   locale: getLocale(),
-  size: getSize()
+  size: getSize(),
+  dashboard: getDefaultDashboard()
 }
 
 const mutations = {
@@ -24,6 +27,9 @@ const mutations = {
   },
   UPDATE_LOADING_STATUS: (state, status) => {
     state.loading = status
+  },
+  UPDATE_DASHBOARD: (state, dashboard) => {
+    state.dashboard = dashboard
   }
 }
 
@@ -39,6 +45,10 @@ const actions = {
   },
   updateLoadingStatus({ commit }, status) {
     commit('UPDATE_LOADING_STATUS', status)
+  },
+  updateDashboard({ commit }, dashboard) {
+    window.sessionStorage.setItem(SESSION.DASHBOARD, dashboard)
+    commit('UPDATE_DASHBOARD', dashboard)
   }
 }
 
