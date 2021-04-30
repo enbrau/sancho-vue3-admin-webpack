@@ -3,7 +3,7 @@
     v-if="!item.hidden"
     class="menu-wrapper"
   >
-    <template v-if="hasOneShowingChild(item.children,item) && (!onlyOneChild.children||onlyOneChild.noShowingChildren)&&!item.alwaysShow">
+    <template v-if="hasOneShowingChild(item.children,item) && (hasNoShowingChild(onlyOneChild.children)||onlyOneChild.noShowingChildren) && !item.alwaysShow">
       <app-link
         v-if="onlyOneChild.meta"
         :to="resolvePath(onlyOneChild.path)"
@@ -32,10 +32,10 @@
     >
       <template #title>
         <svg-icon
-          v-if="item.meta.icon"
+          v-if="item.meta && item.meta.icon"
           :icon-class="item.meta.icon"
         />
-        <span>{{ this.$t(item.meta.title) }}</span>
+        <span>{{ this.$t(item.mata ? item.meta.title : '') }}</span>
         <!-- <item v-if="item.meta" :icon="item.meta && item.meta.icon" :title="this.$t(item.meta.title)" /> -->
       </template>
       <sidebar-item
@@ -115,6 +115,14 @@ export default {
         return this.basePath
       }
       return path.resolve(this.basePath, routePath)
+    },
+    hasNoShowingChild(children = []) {
+      for (const child of children) {
+        if (!child.hidden) {
+          return false
+        }
+      }
+      return true
     }
   }
 }
