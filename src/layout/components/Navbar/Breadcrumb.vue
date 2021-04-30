@@ -45,9 +45,16 @@ export default {
   methods: {
     getBreadcrumb() {
       // only show routes with meta.title
-      let matched = this.$route.matched.filter(item => item.meta && item.meta.title)
+      const { params } = this.$route
+      let matched = this.$route.matched.filter(item => {
+        if (item.name) {
+          // To solve this problem https://github.com/PanJiaChen/vue-element-admin/issues/561
+          var toPath = pathToRegexp.compile(item.path)
+          item.path = toPath(params)
+          return true
+        }
+      })
       const first = matched[0]
-
       if (!this.isRootRoute(first)) {
         matched = [{ path: '/dashboard', meta: { title: 'menu.Dashboard' }}].concat(matched)
       }

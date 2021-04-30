@@ -50,6 +50,7 @@
     "mathjs": "^9.2.0",
     "mitt": "^2.1.0",
     "nprogress": "^0.2.0",
+    "path-to-regexp": "2.4.0",
     "qrcode": "^1.4.4",
     "screenfull": "^4.2.0",
     "sm-crypto": "^0.2.4",
