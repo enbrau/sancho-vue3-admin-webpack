@@ -2,7 +2,7 @@
   <section class="app-main">
     <router-view v-slot="{ Component }">
       <keep-alive>
-        <component :is="$settings.useNestedRoute ? Component : component" :key="key" />
+        <component :is="decideComponent(Component)" :key="key" />
       </keep-alive>
     </router-view>
   </section>
@@ -19,10 +19,16 @@ export default {
     },
     key() {
       return this.$route.fullPath
-    },
-    component() {
+    }
+  },
+  methods: {
+    decideComponent(component) {
       // 解决嵌套路由问题
-      return markRaw(this.$route.matched[this.$route.matched.length - 1].components.default)
+      if (this.$settings.useNestedRoute || (this.$route.meta && this.$route.meta.nested)) {
+        return markRaw(this.$route.matched[this.$route.matched.length - 1].components.default)
+      } else {
+        return component
+      }
     }
   }
 }
