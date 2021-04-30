@@ -2,13 +2,15 @@
   <section class="app-main">
     <router-view v-slot="{ Component }">
       <keep-alive>
-        <component :is="Component" :key="key" />
+        <component :is="$settings.useNestedRoute ? Component : component" :key="key" />
       </keep-alive>
     </router-view>
   </section>
 </template>
 
 <script>
+import { markRaw } from '@vue/reactivity'
+
 export default {
   name: 'AppMain',
   computed: {
@@ -17,6 +19,10 @@ export default {
     },
     key() {
       return this.$route.fullPath
+    },
+    component() {
+      // 解决嵌套路由问题
+      return markRaw(this.$route.matched[this.$route.matched.length - 1].components.default)
     }
   }
 }
