@@ -24,7 +24,7 @@ export default {
   methods: {
     decideComponent(component) {
       // 解决嵌套路由问题
-      if (this.$settings.useNestedRoute || (this.$route.meta && this.$route.meta.nested)) {
+      if (this.$settings.useNestedRoute || (this.$route.meta && !this.$route.meta.nested)) {
         return markRaw(this.$route.matched[this.$route.matched.length - 1].components.default)
       } else {
         return component
