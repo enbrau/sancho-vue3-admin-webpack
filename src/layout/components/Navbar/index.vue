@@ -92,7 +92,7 @@ export default {
     },
     logout() {
       delCookie(this.$settings.security.token_key.cookie)
-      this.$router.push('/login')
+      window.location = `${window.location.protocol}//${window.location.host}${window.location.pathname}`
     }
   }
 }
