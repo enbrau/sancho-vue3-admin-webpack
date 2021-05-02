@@ -125,10 +125,11 @@ aside {
 
 //main-container全局样式
 .app-container, .dashboard-container {
-  margin: 10px;
+  margin: 0px;
   padding: 20px;
   background-color: white;
   border-radius: 10px;
+  overflow: hidden;
 }
 
 .components-container {
