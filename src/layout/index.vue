@@ -45,7 +45,8 @@ export default {
     classObj() {
       return {
         hideSidebar: !this.sidebar,
-        openSidebar: this.sidebar
+        openSidebar: this.sidebar,
+        darkMode: this.$store.state.app.darkMode
       }
     }
   }

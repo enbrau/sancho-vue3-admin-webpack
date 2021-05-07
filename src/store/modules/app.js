@@ -9,7 +9,8 @@ const state = {
   loading: false,
   locale: getLocale(),
   size: getSize(),
-  dashboard: getDefaultDashboard()
+  dashboard: getDefaultDashboard(),
+  darkMode: false
 }
 
 const mutations = {
@@ -30,6 +31,9 @@ const mutations = {
   },
   UPDATE_DASHBOARD: (state, dashboard) => {
     state.dashboard = dashboard
+  },
+  TOGGLE_DARKMODE: (state) => {
+    state.darkMode = !state.darkMode
   }
 }
 
@@ -49,6 +53,9 @@ const actions = {
   updateDashboard({ commit }, dashboard) {
     window.sessionStorage.setItem(SESSION.DASHBOARD, dashboard)
     commit('UPDATE_DASHBOARD', dashboard)
+  },
+  toggleDarkMode({ commit }) {
+    commit('TOGGLE_DARKMODE')
   }
 }
 

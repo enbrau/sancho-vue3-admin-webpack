@@ -43,5 +43,7 @@ export default {
   history: '历史',
   impersonate: '扮演',
   fullscreen: '全屏',
-  locale: '语言区域'
+  locale: '语言区域',
+  to_dark_mode: '切换为夜晚模式',
+  to_light_mode: '切换为白天模式',
 }

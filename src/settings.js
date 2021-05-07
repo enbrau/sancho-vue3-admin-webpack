@@ -68,6 +68,8 @@ module.exports = {
 
   enableFullScreen: true,
 
+  enableDarkMode: false,
+
   /**
    * Client infomation
    */
