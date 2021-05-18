@@ -1,40 +1,47 @@
 <template>
   <el-scrollbar
-    ref="scrollContainer"
-    :vertical="false"
-    class="scroll-container"
-    @wheel.prevent="handleScroll"
+      :ref="setScrollContainer"
+      :vertical="false"
+      class="scroll-container"
+      @wheel.prevent="handleScroll"
   >
     <slot />
   </el-scrollbar>
 </template>
 
 <script>
+import { ref } from '@vue/reactivity'
 const tagAndTagSpacing = 4 // tagAndTagSpacing
 
 export default {
   name: 'ScrollPane',
   data() {
     return {
-      left: 0
+      left: 0,
+      scrollContainer: ref(null)
     }
   },
   computed: {
     scrollWrapper() {
-      return this.$refs.scrollContainer.$refs.wrap
+      return this.scrollContainer.wrap
     }
   },
   methods: {
+    setScrollContainer(el) {
+      if (el) {
+        this.scrollContainer = ref(el)
+      }
+    },
     handleScroll(e) {
       const eventDelta = e.wheelDelta || -e.deltaY * 40
-      const $scrollWrapper = this.scrollWrapper
+      const $scrollWrapper = this.scrollContainer
       $scrollWrapper.scrollLeft = $scrollWrapper.scrollLeft + eventDelta / 4
     },
     moveToTarget(currentTag) {
-      const $container = this.$refs.scrollContainer.$el
+      const $container = this.scrollContainer.$el
       const $containerWidth = $container.offsetWidth
-      const $scrollWrapper = this.scrollWrapper
-      const tagList = this.$parent.$refs.tag
+      const $scrollWrapper = this.scrollContainer
+      const tagList = this.$parent.tags
 
       let firstTag = null
       let lastTag = null
