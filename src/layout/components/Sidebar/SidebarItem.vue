@@ -35,7 +35,7 @@
           v-if="item.meta && item.meta.icon"
           :icon-class="item.meta.icon"
         />
-        <span>{{ this.$t(item.mata ? item.meta.title : '') }}</span>
+        <span>{{ this.$t(item.meta ? item.meta.title : '') }}</span>
         <!-- <item v-if="item.meta" :icon="item.meta && item.meta.icon" :title="this.$t(item.meta.title)" /> -->
       </template>
       <sidebar-item
