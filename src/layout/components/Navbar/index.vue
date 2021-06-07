@@ -10,6 +10,7 @@
       id="breadcrumb-container"
       class="breadcrumb-container"
     />
+    <div id="global-sub-function-slot" style="display: inline-block; font-size: 14px; line-height: 50px; margin-left: 8px;"></div>
     <div class="right-menu">
       <template v-if="device!=='mobile'">
         <component
@@ -85,6 +86,11 @@ export default {
     isCancelImpersonateEnabled() {
       return this.$settings.enableImpersonate || false
     }
+  },
+  mounted() {
+    this.$nextTick(() => {
+      this.$store.dispatch('app/navbarReady')
+    })
   },
   methods: {
     toggleSideBar() {

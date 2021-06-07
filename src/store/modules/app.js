@@ -10,7 +10,8 @@ const state = {
   locale: getLocale(),
   size: getSize(),
   dashboard: getDefaultDashboard(),
-  darkMode: false
+  darkMode: false,
+  navbarReady: false
 }
 
 const mutations = {
@@ -34,6 +35,9 @@ const mutations = {
   },
   TOGGLE_DARKMODE: (state) => {
     state.darkMode = !state.darkMode
+  },
+  NAVBAR_READY: (state) => {
+    state.navbarReady = true
   }
 }
 
@@ -56,6 +60,9 @@ const actions = {
   },
   toggleDarkMode({ commit }) {
     commit('TOGGLE_DARKMODE')
+  },
+  navbarReady({ commit }) {
+    commit('NAVBAR_READY')
   }
 }
 

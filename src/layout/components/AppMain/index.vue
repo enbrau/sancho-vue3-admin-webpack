@@ -2,7 +2,7 @@
   <section class="app-main">
     <router-view v-slot="{ Component }">
       <keep-alive>
-        <component :is="decideComponent(Component)" :key="key" />
+        <component v-if="ready" :is="decideComponent(Component)" :key="key" />
       </keep-alive>
     </router-view>
   </section>
@@ -19,6 +19,9 @@ export default {
     },
     key() {
       return this.$route.fullPath
+    },
+    ready() {
+      return this.$store.state.app.navbarReady
     }
   },
   methods: {
