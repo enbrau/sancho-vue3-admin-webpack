@@ -4,7 +4,7 @@ export default function(app) {
   return new Promise((resolve) => {
     fetchDicts()
       .then(res => {
-        const dicts = res.data
+        const dicts = res.data || {}
         dicts.convert = function(dictName, dictKey, fallbackDict) {
           const dict = dicts[dictName] || fallbackDict || {}
           return dict[dictKey] || dictKey
