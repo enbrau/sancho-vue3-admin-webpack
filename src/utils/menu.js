@@ -1,7 +1,7 @@
 import $lodash from 'lodash'
 import settings from '@/settings'
 import { dynamicRoutes } from '@/router'
-import { getZhValueByPath } from '@/i18n'
+import i18n from '@/i18n'
 import { deepClone } from '@/utils'
 import { fetchMenus } from '@/api/system/menus'
 import { fetchPermissions } from '@/api/system/permissions'
@@ -14,8 +14,8 @@ export async function getMenus() {
       const menus = []
       for (let i = 0; i < routes.length; i++) {
         const obj = routes[i]
-        if ((obj.isMenu === undefined || obj.isMenu) && obj.name) {
-          const menu = { id: obj.name, name: obj.meta ? getZhValueByPath(obj.meta.title) : obj.path, status: true }
+        if (obj.isMenu) {
+          const menu = { id: obj.name, name: obj.meta ? i18n.global.t(obj.meta.title) : obj.path, status: true }
           if (obj.meta) {
             menu.perms = obj.meta.role
             menu.icon = obj.meta.icon
@@ -25,6 +25,13 @@ export async function getMenus() {
             menu.children = filter(obj.children, menu.url)
           }
           menus.push(menu)
+        } else {
+          if (obj.children) {
+            const sub_menu_list = filter(obj.children, path)
+            for (const sub_menu of sub_menu_list) {
+              menus.push(sub_menu)
+            }
+          }
         }
       }
       return menus

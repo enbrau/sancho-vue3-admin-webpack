@@ -52,15 +52,15 @@ export function hasPermission(actionKey) {
   }
 }
 
-export function filterRoutes(routes, userPerms) {
+export function filterRoutes(routes, perms) {
   const res = []
 
   routes.forEach(route => {
     const tmp = { ...route }
     
-    if (!tmp.isMenu || hasPermission(tmp.name)) {
+    if (!(tmp.isMenu) || (tmp.isMenu && hasPermission(tmp.name))) {
       if (tmp.children) {
-        tmp.children = filterRoutes(tmp.children, userPerms)
+        tmp.children = filterRoutes(tmp.children, perms)
       }
       res.push(tmp)
     }
