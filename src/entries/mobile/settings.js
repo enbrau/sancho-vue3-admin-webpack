@@ -1,5 +1,8 @@
-export default {
+import lodash from 'lodash'
+import settings from '@/settings'
 
-  title: '手机'
+export default lodash.extend(settings, {
 
-}
+  title: 'Mobile'
+
+})
