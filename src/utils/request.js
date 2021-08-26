@@ -2,7 +2,7 @@ import axios from 'axios'
 import settings from '@/settings'
 
 const service = axios.create({
-  baseURL: import.meta.env.BASE_API_URL,
+  baseURL: import.meta.env.VITE_BASE_URL,
   withCredentials: settings.client.withCredentials,
   timeout: settings.client.timeout
 })

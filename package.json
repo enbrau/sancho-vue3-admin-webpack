@@ -10,6 +10,7 @@
   "dependencies": {
     "axios": "^0.21.1",
     "mockjs": "^1.1.0",
+    "tapable": "^2.2.0",
     "vite-plugin-svg-icons": "^1.0.4",
     "vue": "^3.2.6"
   },

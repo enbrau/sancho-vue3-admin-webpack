@@ -8,7 +8,7 @@ const port = process.env.port || process.env.npm_config_port || 9528
 
 const mode = process.env.NODE_ENV
 
-export default defineConfig(({mode}) => {
+export default defineConfig(({ mode }) => {
   require('dotenv').config({ path: `./.env.${mode}` });
   return {
     plugins: [
@@ -18,10 +18,15 @@ export default defineConfig(({mode}) => {
         iconDirs: [path.resolve(process.cwd(), 'src/icons/svg')],
         symbolId: 'icon-[dir]-[name]',
       }),
+      // https://github.com/anncwb/vite-plugin-mock/
       viteMockServe({
-        logger: true,
-        mockPath: '/mock'
-      })
+        mockPath: 'mock',
+        supportTs: true,
+        watchFiles: true,
+        ignoreFiles: [],
+        prodEnabled: false,
+        logger: true
+    })
     ],
     resolve: {
       alias: {
@@ -34,7 +39,7 @@ export default defineConfig(({mode}) => {
       strictPort: false,
       proxy: {
         [process.env.VITE_BASE_URL]: {
-          target: process.env.VITE_BASE_URL === '/mock' ? `http://127.0.0.1:${port}/mock` : `${process.env.VITE_BASE_URL}`,
+          target: process.env.VITE_BASE_URL === '/mock' ? `http://127.0.0.1:${port}/mock` : `${process.env.VITE_HOST}${process.env.VITE_BASE_URL}`,
           changeOrigin: true,
           ws: true,
           secure: false,
