@@ -9,10 +9,15 @@
   },
   "dependencies": {
     "axios": "^0.21.1",
+    "dayjs": "^1.10.6",
+    "element-plus": "*",
+    "lodash": "^4.17.21",
     "mockjs": "^1.1.0",
     "tapable": "^2.2.0",
     "vite-plugin-svg-icons": "^1.0.4",
-    "vue": "^3.2.6"
+    "vue": "^3.2.6",
+    "vue-router": "^4.0.11",
+    "vuex": "^4.0.2"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^1.6.0",
