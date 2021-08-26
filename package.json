@@ -10,7 +10,6 @@
   "dependencies": {
     "axios": "^0.21.1",
     "dayjs": "^1.10.6",
-    "element-plus": "*",
     "lodash": "^4.17.21",
     "mockjs": "^1.1.0",
     "tapable": "^2.2.0",
