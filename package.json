@@ -2,17 +2,23 @@
   "name": "sancho-vue3-admin",
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "serve": "vite preview"
+    "dev": "cross-env NODE_ENV=development vite --mode development",
+    "dev:online": "vite --mode online",
+    "build": "vite build --mode production",
+    "build:stage": "vite build --mode stage"
   },
   "dependencies": {
+    "axios": "^0.21.1",
+    "mockjs": "^1.1.0",
     "vite-plugin-svg-icons": "^1.0.4",
     "vue": "^3.2.6"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^1.6.0",
     "@vue/compiler-sfc": "^3.0.5",
-    "vite": "^2.5.1"
+    "cross-env": "^7.0.3",
+    "dotenv": "^10.0.0",
+    "vite": "^2.5.1",
+    "vite-plugin-mock": "^2.9.6"
   }
 }
