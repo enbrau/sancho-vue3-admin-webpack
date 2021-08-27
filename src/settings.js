@@ -48,6 +48,14 @@ export default {
 
   },
 
+  theme: {
+
+    enableAutoThemeModeDetect: false,
+
+    defaultThemeMode: 'light'
+
+  }
+
   // =========================================================================================
   // !!! The following options cannot be overwritten by other entry settings files
   // =========================================================================================

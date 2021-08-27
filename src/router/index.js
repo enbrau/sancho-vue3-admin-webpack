@@ -77,10 +77,7 @@ const router = createRouter({
   routes: accessibleRoutes
 })
 
-console.debug('Accessible routes: ', accessibleRoutes)
-
 router.beforeEach(async(to, from, next) => {
-  console.debug('Route goes', to, from)
   try {
     next()
   } catch(e) {

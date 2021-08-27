@@ -10,13 +10,8 @@ for (const moduleFileName in moduleFiles) {
   console.log(`[Sancho] Storage unit loaded: ${moduleName}`)
 }
 
-export const getters = {
-  themeMode: state => state.app.sidebar
-}
-
 const store = createStore({
-  modules,
-  getters
+  modules
 })
 
 export default store
