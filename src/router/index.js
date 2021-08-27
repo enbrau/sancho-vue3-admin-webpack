@@ -1,7 +1,6 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import Layout from '@/layout/index.vue'
 import { deepClone } from '@/utils'
-import settings from '@/settings'
 
 // routes scanned from modules folder
 const scannedRoutes = []
@@ -91,7 +90,7 @@ router.beforeEach(async(to, from, next) => {
 
 router.afterEach(() => {
   try {
-
+    // do something
   } catch(e) {
     console.error('Error handling after route: ', e)
   }

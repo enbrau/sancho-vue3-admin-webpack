@@ -3,7 +3,7 @@ const state = {
 }
 
 const mutations = {
-  TOGGLE_THEME_MODE: (state) => {
+  TOGGLE_THEME_MODE: () => {
     state.themeMode = state.themeMode !== 'lignt' ? 'lignt' : 'dark'
   }
 }

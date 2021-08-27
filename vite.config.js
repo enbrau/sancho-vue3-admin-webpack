@@ -1,4 +1,4 @@
-import { defineConfig, ConfigEnv, UserConfigExport } from 'vite'
+import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import viteSvgIcons from 'vite-plugin-svg-icons'
 import { viteMockServe } from 'vite-plugin-mock'
@@ -8,7 +8,7 @@ const port = process.env.port || process.env.npm_config_port || 9528
 
 const mode = process.env.NODE_ENV
 
-export default defineConfig(({ mode }) => {
+export default defineConfig(() => {
   require('dotenv').config({ path: `./.env.${mode}` });
   return {
     plugins: [
