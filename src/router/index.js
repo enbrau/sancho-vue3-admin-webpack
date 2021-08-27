@@ -8,6 +8,7 @@ const scannedRoutes = []
 const moduleFiles = import.meta.globEager('./modules/*.js')
 for (const moduleFileName in moduleFiles) {
   const module = moduleFiles[moduleFileName]
+  const moduleName = moduleFileName.replace(/^\.\/(.*)\.\w+$/, '$1').replace('modules/', '')
   const target = module.default
   if (Array.isArray(target)) {
     for (const route of target) {
@@ -16,7 +17,7 @@ for (const moduleFileName in moduleFiles) {
   } else {
     scannedRoutes.push(target)
   }
-  console.log(`Route module loaded: ${moduleFileName}`)
+  console.log(`[Sancho] Route module loaded: ${moduleName}`)
 }
 
 // routes must exist
