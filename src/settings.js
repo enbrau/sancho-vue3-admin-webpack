@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 
   /**
    * @type {string} build path
